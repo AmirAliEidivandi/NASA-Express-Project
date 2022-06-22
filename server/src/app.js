@@ -1,11 +1,17 @@
 const express = require("express");
 const app = express();
-const planetRouter = require('./routes/planets/planets.router');
+const cors = require("cors");
+const planetRouter = require("./routes/planets/planets.router");
 
 // middleware
 app.use(express.json());
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+    })
+);
 
 // routes
-app.use(planetRouter)
+app.use(planetRouter);
 
 module.exports = app;
