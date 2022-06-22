@@ -1,5 +1,11 @@
 const express = require("express");
 const app = express();
-app.use(express.json())
+const planetRouter = require('./routes/planets/planets.router');
+
+// middleware
+app.use(express.json());
+
+// routes
+app.use(planetRouter)
 
 module.exports = app;
